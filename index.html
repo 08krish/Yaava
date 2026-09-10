@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yaava — Retro Romantic Songs</title>
+  <meta name="description"
+    content="Yaava is a free romantic songs player. 90s retro Hindi, Punjabi romantic, Gujarati romantic and 2000s Hindi hits. No signup — open and press play." />
+  <meta name="keywords"
+    content="90s hindi romantic songs, punjabi romantic songs, gujarati romantic songs, 2000s hindi songs, bollywood retro music, free music player" />
+  <meta name="theme-color" content="#0d0614" />
+  <meta property="og:title" content="Yaava — Retro Romantic Songs" />
+  <meta property="og:description"
+    content="Play 90s retro, Punjabi, Gujarati and 2000s Hindi romantic songs. Free. No signup." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="bg-wrap" aria-hidden="true">
+    <div class="bg-img"></div>
+    <div class="bg-scrim"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar glass-nav" id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo-link">
+        <span class="logo-icon">&#9835;</span>
+        <span class="logo-text">Yaava</span>
+      </a>
+      <nav class="nav-links" aria-label="Site navigation">
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+      <div class="nav-clock" id="navClock" aria-label="Current time"></div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-eyebrow">&#9834; &nbsp;Romantic Melodies&nbsp; &#9834;</p>
+      <h1 class="hero-title">
+        <span class="hero-title-hi">&#2342;&#2367;&#2354; &#2325;&#2368;
+          &#2343;&#2337;&#2364;&#2325;&#2344;&#2375;&#2306;</span>
+        <span class="hero-title-en">Feel Every Beat</span>
+      </h1>
+      <p class="hero-sub">90s retro classics &middot; Punjabi romance &middot; Gujarati vibes &middot; 2000s hits</p>
+
+      <!-- PLAYER PILL -->
+      <div class="player-pill glass-pill" id="playerPill" aria-live="polite">
+        <div class="pill-cover" id="pillCover">
+          <span class="pill-cover-icon">&#9835;</span>
+        </div>
+        <div class="pill-body">
+          <div class="pill-row">
+            <div class="pill-meta">
+              <span class="pill-title" id="pillTitle">Pick a category below</span>
+              <span class="pill-artist" id="pillArtist">Choose your vibe &rarr;</span>
+            </div>
+            <div class="pill-controls" id="pillControls">
+              <button class="ctrl-btn" id="btnPrev" title="Previous" aria-label="Previous song" disabled>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" />
+                </svg>
+              </button>
+              <button class="ctrl-btn ctrl-play" id="btnPlay" title="Play / Pause" aria-label="Play or pause" disabled>
+                <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+                  <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+                </svg>
+              </button>
+              <button class="ctrl-btn" id="btnNext" title="Next" aria-label="Next song" disabled>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M6 18l8.5-6L6 6v12zm2.5-6 6-4.25v8.5L8.5 12zM16 6h2v12h-2z" />
+                </svg>
+              </button>
+              <button class="ctrl-btn ctrl-shuffle" id="btnShuffle" title="Shuffle" aria-label="Toggle shuffle"
+                disabled>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M10.59 9.17 5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="pill-progress-row">
+            <span class="pill-time" id="pillCurrent">0:00</span>
+            <div class="pill-rail" id="pillRail" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+              aria-valuemax="100">
+              <div class="pill-fill" id="pillFill"></div>
+              <div class="pill-thumb" id="pillThumb"></div>
+            </div>
+            <span class="pill-time" id="pillDuration">0:00</span>
+          </div>
+        </div>
+      </div>
+
+      <a href="#categories" class="hero-cta glass-btn">Explore Categories</a>
+    </div>
+
+    <!-- Hidden YouTube player -->
+    <div id="yt-container" aria-hidden="true">
+      <div id="yt-player"></div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories-section" id="categories">
+    <div class="section-inner">
+      <p class="section-eyebrow">What's your vibe?</p>
+      <h2 class="section-title">Choose Your Playlist</h2>
+
+      <div class="category-grid">
+
+        <!--
+        ============================================================
+        PLAYLIST ID LOCATION 1 — 90s Retro Hindi Romantic
+        In the line below, replace  YOUR_90S_PLAYLIST_ID
+        with your YouTube playlist ID (e.g. PLxxxxxxxxxxxxxxxxxxxx)
+        ============================================================ -->
+        <article class="cat-card glass-card" id="cat-90s" data-playlist-id="PLRvfhsmp-5hY"
+          data-label="90s Retro Hindi" tabindex="0" aria-label="Play 90s Retro Hindi Romantic songs">
+          <div class="cat-img-wrap">
+            <img src="cat-90s.jpg" alt="Vintage vinyl record with rose petals" class="cat-img" loading="lazy" />
+            <div class="cat-img-overlay"></div>
+          </div>
+          <div class="cat-body">
+            <div class="cat-badge"><span class="badge-dot"></span> 90s Retro</div>
+            <h3 class="cat-title">Hindi Romantic</h3>
+            <p class="cat-desc">Timeless melodies from the golden era — Kumar Sanu, Alka Yagnik, Udit Narayan &amp;
+              more.</p>
+            <button class="cat-play-btn glass-btn" id="play-90s">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Play Now
+            </button>
+          </div>
+          <div class="cat-glow cat-glow-gold"></div>
+        </article>
+
+        <!--
+        ============================================================
+        PLAYLIST ID LOCATION 2 — Punjabi Romantic Songs
+        In the line below, replace  YOUR_PUNJABI_PLAYLIST_ID
+        with your YouTube playlist ID (e.g. PLxxxxxxxxxxxxxxxxxxxx)
+        ============================================================ -->
+        <article class="cat-card glass-card" id="cat-punjabi" data-playlist-id="PLPZgN4gqMwPk"
+          data-label="Punjabi Romantic" tabindex="0" aria-label="Play Punjabi Romantic songs">
+          <div class="cat-img-wrap">
+            <img src="cat-punjabi.jpg" alt="Wheat fields at golden sunset with dhol drum" class="cat-img"
+              loading="lazy" />
+            <div class="cat-img-overlay"></div>
+          </div>
+          <div class="cat-body">
+            <div class="cat-badge cat-badge-orange"><span class="badge-dot"></span> English</div>
+            <h3 class="cat-title">Romantic Songs</h3>
+            <p class="cat-desc">Soulful English love ballads — from smooth Sufi vibes to heartfelt modern beats.</p>
+            <button class="cat-play-btn glass-btn glass-btn-orange" id="play-punjabi">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Play Now
+            </button>
+          </div>
+          <div class="cat-glow cat-glow-orange"></div>
+        </article>
+
+        <!--
+        ============================================================
+        PLAYLIST ID LOCATION 3 — Gujarati Romantic Songs
+        In the line below, replace  YOUR_GUJARATI_PLAYLIST_ID
+        with your YouTube playlist ID (e.g. PLxxxxxxxxxxxxxxxxxxxx)
+        ============================================================ -->
+        <article class="cat-card glass-card" id="cat-gujarati" data-playlist-id="PLMiERrjx8kekg27a61zdStBGhSyaXAilr"
+          data-label="Gujarati Romantic" tabindex="0" aria-label="Play Gujarati Romantic songs">
+          <div class="cat-img-wrap">
+            <img src="cat-gujarati.jpg" alt="Garba dancers with peacock feathers" class="cat-img" loading="lazy" />
+            <div class="cat-img-overlay"></div>
+          </div>
+          <div class="cat-body">
+            <div class="cat-badge cat-badge-teal"><span class="badge-dot"></span> Gujarati</div>
+            <h3 class="cat-title">Romantic Songs</h3>
+            <p class="cat-desc">Beautiful Gujarati love songs full of festive energy, folk rhythms and modern romance.
+            </p>
+            <button class="cat-play-btn glass-btn glass-btn-teal" id="play-gujarati">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Play Now
+            </button>
+          </div>
+          <div class="cat-glow cat-glow-teal"></div>
+        </article>
+
+        <!--
+        ============================================================
+        PLAYLIST ID LOCATION 4 — 2000s Hindi Romantic Songs
+        In the line below, replace  YOUR_2000S_PLAYLIST_ID
+        with your YouTube playlist ID (e.g. PLxxxxxxxxxxxxxxxxxxxx)
+        ============================================================ -->
+        <article class="cat-card glass-card" id="cat-2000s" data-playlist-id="PLV5CHDL-CP2k"
+          data-label="2000s Hindi" tabindex="0" aria-label="Play 2000s Hindi Romantic songs">
+          <div class="cat-img-wrap">
+            <div class="cat-img-gradient cat-img-2000s"></div>
+            <div class="cat-img-overlay"></div>
+          </div>
+          <div class="cat-body">
+            <div class="cat-badge cat-badge-pink"><span class="badge-dot"></span> 2000s Era</div>
+            <h3 class="cat-title">Hindi Romantic</h3>
+            <p class="cat-desc">Nostalgia-packed 2000s hits — KK, Shaan, Shreya Ghoshal &amp; all the classics you grew
+              up with.</p>
+            <button class="cat-play-btn glass-btn glass-btn-pink" id="play-2000s">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Play Now
+            </button>
+          </div>
+          <div class="cat-glow cat-glow-pink"></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="section-inner">
+      <p class="section-eyebrow">About Yaava</p>
+      <h2 class="section-title">Music for the heart</h2>
+      <p class="about-lead">Yaava is a free, no-signup romantic music player built for lovers of Indian melodies. Pick a
+        category, press play and let the emotions flow.</p>
+      <div class="feature-grid">
+        <div class="feature-card glass-card-sm">
+          <div class="feature-icon">&#127925;</div>
+          <h3>Four Moods</h3>
+          <p>90s retro, Punjabi, Gujarati and 2000s Hindi — all curated separately.</p>
+        </div>
+        <div class="feature-card glass-card-sm">
+          <div class="feature-icon">&#128256;</div>
+          <h3>Random Play</h3>
+          <p>Shuffle any playlist so every session feels fresh and surprising.</p>
+        </div>
+        <div class="feature-card glass-card-sm">
+          <div class="feature-icon">&#128241;</div>
+          <h3>Works Everywhere</h3>
+          <p>Plays beautifully on mobile and desktop. Open and enjoy instantly.</p>
+        </div>
+        <div class="feature-card glass-card-sm">
+          <div class="feature-icon">&#10024;</div>
+          <h3>No Signup</h3>
+          <p>No account. No app. Just open the page and press play.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer glass-footer">
+    <div class="footer-inner">
+      <span class="footer-logo">&#9835; Yaava</span>
+      <span class="footer-credit">Made with &#10084;&#65039; for music lovers by SAM</span>
+      <span class="footer-note">Music plays via YouTube</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
